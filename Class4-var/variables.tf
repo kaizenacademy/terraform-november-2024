@@ -20,6 +20,6 @@ variable instance_type {
     default = "t2.micro"
 }
 variable port {
-    type = number
-    default = 22
+    type = list
+    default = [22, 80]
 }
