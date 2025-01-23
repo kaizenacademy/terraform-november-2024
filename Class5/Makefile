@@ -38,3 +38,7 @@ oregon-d:
 	terraform workspace select oregon
 	terraform init
 	terraform destroy -var-file oregon.tfvars --auto-approve
+
+apply-all: virginia ohio oregon california
+
+destroy-all: virginia-d ohio-d oregon-d california-d
