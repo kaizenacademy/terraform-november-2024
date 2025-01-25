@@ -12,6 +12,13 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
   key_name = aws_key_pair.deployer.key_name
 
+  connection {
+    type     = "ssh"
+    user     = "ec2-user"
+    host     = self.public_ip
+    private_key = file("~/.ssh/id_rsa")
+  }
+
   provisioner "remote-exec" {
     inline = [
         "sudo yum install httpd -y"
